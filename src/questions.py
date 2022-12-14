@@ -49,3 +49,4 @@ class AdminButtons(Enum):
     SEND_AUDIO = 'отправить аудио'
     SEND_VIDEO = 'отправить видео'
     SEND_MESSAGE = 'написать сообщение'
+    WRITE_ANSW = 'введите текст'

@@ -21,7 +21,7 @@ def start_db():
             answered integer default 0) '''
         )
         cursor.execute(
-            ''' CREATE TABLE IF NOT EXISTS video(
+            ''' CREATE TABLE IF NOT EXISTS video_note(
             name text PRIMARY KEY, object_id text)'''
         )
         cursor.execute(
@@ -63,7 +63,7 @@ async def set_user_answered(user_id):
     with sqlite3.connect(DBNAME) as conn:
         cursor = conn.cursor()
         cursor.execute(
-            'UPDATE user_answers SET answerd=:res WHERE user_id=:user_id',
+            'UPDATE user_answers SET answered=:res WHERE user_id=:user_id',
             {'res': 1, 'user_id': user_id}
         )
 

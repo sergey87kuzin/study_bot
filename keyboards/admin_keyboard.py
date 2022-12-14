@@ -7,14 +7,14 @@ from src.literals import DBNAME
 ADMIN_KEYBOARD = ({'text': AdminButtons.ADD_AUDIO.value,
                    'callback_data': 'voice'},
                   {'text': AdminButtons.ADD_VIDEO.value,
-                   'callback_data': 'video'},
+                   'callback_data': 'video_note'},
                   {'text': AdminButtons.ANSWER.value,
                    'callback_data': 'answ'})
 ADMIN_TO_USER_KB = (
     {'text': AdminButtons.SEND_AUDIO.value,
      'callback_data': 'send_voice'},
     {'text': AdminButtons.SEND_VIDEO.value,
-     'callback_data': 'send_video'},
+     'callback_data': 'send_video_note'},
     {'text': AdminButtons.SEND_MESSAGE.value,
      'callback_data': 'send_mess'}
 )

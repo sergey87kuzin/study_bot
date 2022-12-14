@@ -1,4 +1,5 @@
 import sqlite3
+import json
 import os
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from src.literals import DBNAME, ADD_ANSWERS_TO_USER
@@ -26,3 +27,17 @@ async def send_message_to_admin(question, user_id):
         result = cursor.execute(sql_str, {'user_id': user_id}).fetchone()
         text = f'{result[0]} answerd: {", ".join(result[1:])}'
     await bot.send_message(os.getenv('ADMIN_ID'), text=text)
+
+
+def write_json(data, filename='answer.json'):
+    with open(filename, 'w') as f:
+        json.dump(
+            obj=json.loads(data.as_json()), fp=f, ensure_ascii=False, indent=2,
+            separators=(',', ': ')
+        )
+
+
+def write_to_file(data, filename='answer.txt'):
+    attrs = [attr for attr in dir(data) if not attr.startswith('__')]
+    with open(filename, 'w') as f:
+        f.write(', '.join(attrs))

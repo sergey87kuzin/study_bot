@@ -1,0 +1,53 @@
+{
+  "id": "7699255794806956948",
+  "from": {
+    "id": 1792622682,
+    "is_bot": false,
+    "first_name": "Sergey",
+    "last_name": "Kuzin",
+    "username": "SergeyAKuzin",
+    "language_code": "en"
+  },
+  "message": {
+    "message_id": 494,
+    "from": {
+      "id": 5924358340,
+      "is_bot": true,
+      "first_name": "stock_study_bot",
+      "username": "stock_study_bot"
+    },
+    "chat": {
+      "id": 1792622682,
+      "first_name": "Sergey",
+      "last_name": "Kuzin",
+      "username": "SergeyAKuzin",
+      "type": "private"
+    },
+    "date": 1670938420,
+    "text": "чего изволите?",
+    "reply_markup": {
+      "inline_keyboard": [
+        [
+          {
+            "text": "добавить аудио",
+            "callback_data": "voice"
+          }
+        ],
+        [
+          {
+            "text": "добавить видео",
+            "callback_data": "video_note"
+          }
+        ],
+        [
+          {
+            "text": "ответить ученику",
+            "callback_data": "answ"
+          }
+        ]
+      ]
+    }
+  },
+  "chat_instance": "1822263938117216504",
+  "data": "voice"
+}

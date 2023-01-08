@@ -1,14 +1,20 @@
 {
-  "update_id": 394837830,
+  "id": "7699255797146436419",
+  "from": {
+    "id": 1792622682,
+    "is_bot": false,
+    "first_name": "Sergey",
+    "last_name": "Kuzin",
+    "username": "SergeyAKuzin",
+    "language_code": "ru"
+  },
   "message": {
-    "message_id": 543,
+    "message_id": 1349,
     "from": {
-      "id": 1792622682,
-      "is_bot": false,
-      "first_name": "Sergey",
-      "last_name": "Kuzin",
-      "username": "SergeyAKuzin",
-      "language_code": "en"
+      "id": 5924358340,
+      "is_bot": true,
+      "first_name": "stock_study_bot",
+      "username": "stock_study_bot"
     },
     "chat": {
       "id": 1792622682,
@@ -17,14 +23,31 @@
       "username": "SergeyAKuzin",
       "type": "private"
     },
-    "date": 1671033354,
-    "text": "/start",
-    "entities": [
-      {
-        "offset": 0,
-        "length": 6,
-        "type": "bot_command"
-      }
-    ]
-  }
+    "date": 1673199405,
+    "text": "Выберите действие",
+    "reply_markup": {
+      "inline_keyboard": [
+        [
+          {
+            "text": "записать",
+            "callback_data": "add_file"
+          }
+        ],
+        [
+          {
+            "text": "посмотреть все",
+            "callback_data": "all_files"
+          }
+        ],
+        [
+          {
+            "text": "удалить",
+            "callback_data": "del_file"
+          }
+        ]
+      ]
+    }
+  },
+  "chat_instance": "1822263938117216504",
+  "data": "add_file"
 }

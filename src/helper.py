@@ -1,16 +1,10 @@
 import sqlite3
 import json
 import os
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from keyboards.admin_keyboard import get_admin_to_user_kb
 from src.literals import DBNAME, ADD_ANSWERS_TO_USER
+from src.states import UserFSM
 from create_bot import bot
-
-
-def create_kb(buttons):
-    keyboard = InlineKeyboardMarkup(row_width=1)
-    for button in buttons:
-        keyboard.add(InlineKeyboardButton(**button))
-    return keyboard
 
 
 async def send_message_to_admin(question, user_id):
@@ -22,11 +16,15 @@ async def send_message_to_admin(question, user_id):
     sql_str = (
         f'SELECT user_name, {fields} FROM user_answers WHERE user_id=:user_id'
     )
+    await UserFSM.lesson.set()
     with sqlite3.connect(DBNAME) as conn:
         cursor = conn.cursor()
         result = cursor.execute(sql_str, {'user_id': user_id}).fetchone()
         text = f'{result[0]} answerd: {", ".join(result[1:])}'
-    await bot.send_message(os.getenv('ADMIN_ID'), text=text)
+    await bot.send_message(
+        os.getenv('ADMIN_ID'), text=text,
+        reply_markup=get_admin_to_user_kb(question, user_id)
+    )
 
 
 def write_json(data, filename='answer.json'):
